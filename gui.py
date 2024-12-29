@@ -1,19 +1,42 @@
 import pygame
+import sys
 
 pygame.init()
-screen = pygame.display.set_mode((1280, 720))
-clock = pygame.time.Clock()
-running = True
 
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+WIDTH, HEIGHT = 600, 600
+ROWS, COLS = 8, 8
+SQUARE_SIZE = WIDTH // COLS #75
 
-    screen.fill((255, 255, 255))
+WHITE = (168, 191, 175)
+BLACK = (39, 94, 54)
 
-    pygame.display.flip()
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Chess Game")
 
-    clock.tick(60)
+def draw_board():
+    for row in range(ROWS):
+        for col in range(COLS):
+            color = WHITE if (row + col) % 2 == 0 else BLACK
+            pygame.draw.rect(screen, color, (col * SQUARE_SIZE, row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
-pygame.quit()
+
+def main():
+    clock = pygame.time.Clock()
+    running = True
+
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+        draw_board()
+
+        pygame.display.flip()
+        clock.tick(60)
+
+    pygame.quit()
+    sys.exit()
+
+
+if __name__ == "__main__":
+    main()
