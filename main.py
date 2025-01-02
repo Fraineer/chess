@@ -44,7 +44,20 @@ def put_pieces(board):
             x, y = square[0], square[1]
             board[x][y] = piece
 
-
-
 put_pieces(board)
-printboard()
+
+curr_turn = 1
+while(True):
+    printboard()
+    print(" ")
+    curr_player = " "
+    if curr_turn % 2 == 1:
+        curr_player = "white"
+    if curr_turn % 2 == 0:
+        curr_player = "black"
+    curr_turn += 1
+    print(curr_player)
+    break
+
+if __name__ == "__main__":
+    main()

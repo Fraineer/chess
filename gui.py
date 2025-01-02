@@ -8,7 +8,7 @@ ROWS, COLS = 8, 8
 SQUARE_SIZE = WIDTH // COLS #75
 
 WHITE = (168, 191, 175)
-BLACK = (39, 94, 54)
+GREEN = (39, 94, 54)
 
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Chess Game")
@@ -16,7 +16,7 @@ pygame.display.set_caption("Chess Game")
 def draw_board():
     for row in range(ROWS):
         for col in range(COLS):
-            color = WHITE if (row + col) % 2 == 0 else BLACK
+            color = WHITE if (row + col) % 2 == 0 else GREEN
             pygame.draw.rect(screen, color, (col * SQUARE_SIZE, row * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
 
