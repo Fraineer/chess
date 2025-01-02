@@ -31,6 +31,18 @@ black_pieces_map =  {
     "bK": [(0,4)]
 }
 
+col_map = {
+    "a": 0
+    "b": 1
+    "c": 2
+    "d": 3
+    "e": 4
+    "f": 5
+    "g": 6
+    "h": 7
+}
+
+
 def put_pieces(board):
     #white pieces
     for piece,squares in white_pieces_map.items():
@@ -57,7 +69,14 @@ while(True):
         curr_player = "black"
     curr_turn += 1
     print(curr_player)
-    break
+    print(" ")
+
+    starting_square = input("Square Piece")
+    start_x , start_y = starting_square[0],starting_square[1]
+    start_x = col_map[start_x]
+    start_y = 8 - int(start_y)
+    start_x , start_y = start_y , start_x
+
 
 if __name__ == "__main__":
     main()
